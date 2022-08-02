@@ -1,0 +1,5 @@
+e2e-tests/screenshots
+reports/
+venv/
+**/__pycache__/
+.pytest_cache/
