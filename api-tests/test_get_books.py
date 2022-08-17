@@ -1,14 +1,9 @@
-import unittest
 import requests
-import logging
-import pytest
 
 class TestGetBooks:
     base_url = "http://localhost:50000"
 
     def test_get_books(self):
-        log = logging.getLogger("TestAPI.test_get_books")
-        log.info("running get_books test")
         response = requests.get(f"{self.base_url}/books")
 
         books = response.json()

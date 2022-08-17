@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from faker import Faker
-import pytest
 
 fake = Faker()
 
@@ -16,7 +15,6 @@ class TestE2EBooks:
         self.driver.implicitly_wait(5)
         self.wait = WebDriverWait(self.driver, 5)
 
-    @pytest.mark.skip("Not implemented yet")
     def test_create_book(self):
         driver = self.driver
 
@@ -38,7 +36,6 @@ class TestE2EBooks:
 
         assert new_book["name"] in books_names
 
-    @pytest.mark.skip("Not implemented yet")
     def test_edit_book(self):
         driver = self.driver
 
@@ -61,7 +58,6 @@ class TestE2EBooks:
         new_author = first_book.find_elements(By.TAG_NAME, "td")[1].text
         assert new_author == "Agustin"
 
-    # @pytest.mark.skip("Not implemented yet")
     def test_book_details(self):
         driver = self.driver
 
@@ -78,7 +74,6 @@ class TestE2EBooks:
 
         driver.get_screenshot_as_file("./e2e-tests/screenshots/screenshot.png")
 
-        # wait = WebDriverWait(driver, 5)
         book_name_on_details_modal = self.wait.until(EC.visibility_of_element_located((By.ID, "book_name"))).text
         author_name_on_details_modal = self.wait.until(EC.visibility_of_element_located((By.ID, "book_author"))).text
         
